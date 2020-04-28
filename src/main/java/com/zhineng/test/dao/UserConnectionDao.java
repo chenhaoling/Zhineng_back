@@ -20,6 +20,8 @@ public interface UserConnectionDao extends JpaRepository<UserConnection, Integer
 
     List<UserConnection> findUserConnectionsByLeaveIdAndRelationType(Integer leaveId, Integer relationType);
 
+    List<UserConnection> findAllByConnectionId(Integer connectionId);
+
     void deleteUserConnectionsByRootId(Integer rootId);
 
     void deleteUserConnectionsByLeaveId(Integer leaveId);
