@@ -23,4 +23,14 @@ public class UserServiceImpl implements UserService {
     public List<User> findAll() {
         return userDao.findAll();
     }
+
+    @Override
+    public User findByOpenId(String openId) {
+        return userDao.findByOpenId(openId);
+    }
+
+    @Override
+    public User findByUserIdCard(String userIdCard) {
+        return userDao.findByUserIdCard(userIdCard);
+    }
 }

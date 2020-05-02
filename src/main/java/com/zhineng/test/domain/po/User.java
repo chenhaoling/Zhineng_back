@@ -12,7 +12,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
-    private Integer openId;
+    private String openId;
     private String userName;
     private String userIdCard;
     private Integer userRole;
@@ -24,6 +24,8 @@ public class User {
     private Integer userEduBackground;
     private String userMail;
     private String userPhone;
+    private String userNation;
+    private String userOccupation;
 
     public User() {
 
@@ -77,11 +79,11 @@ public class User {
         this.userId = userId;
     }
 
-    public Integer getOpenId() {
+    public String getOpenId() {
         return this.openId;
     }
 
-    public void setOpenId(Integer openId) {
+    public void setOpenId(String openId) {
         this.openId = openId;
     }
 
@@ -131,5 +133,21 @@ public class User {
 
     public void setUserSecondBirthday(Date userSecondBirthday) {
         this.userSecondBirthday = userSecondBirthday;
+    }
+
+    public String getUserNation() {
+        return this.userNation;
+    }
+
+    public void setUserNation(String nation) {
+        this.userNation = nation;
+    }
+
+    public String getUserOccupation() {
+        return this.userOccupation;
+    }
+
+    public void setUserOccupation(String occupation) {
+        this.userOccupation = occupation;
     }
 }

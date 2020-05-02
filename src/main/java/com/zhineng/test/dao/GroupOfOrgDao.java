@@ -12,11 +12,13 @@ import java.util.List;
 @Repository
 public interface GroupOfOrgDao extends JpaRepository<GroupOfOrg, Integer> {
 
+    GroupOfOrg findGroupOfOrgByGroupId(Integer groupId);
+
     List<GroupOfOrg> findGroupOfOrgsByOrganizationId(Integer organizationId);
 
     void deleteGroupOfOrgsByOrganizationId(Integer organizationId);
 
     @Modifying
-    @Query(value = "update GroupOfOrg set group_name = :groupName where group_id = :groupId", nativeQuery = true)
+    @Query(value = "update group_of_org set group_name = :groupName where group_id = :groupId", nativeQuery = true)
     void updateGroupName(@Param("groupName") String groupName, @Param("groupId") Integer groupId);
 }

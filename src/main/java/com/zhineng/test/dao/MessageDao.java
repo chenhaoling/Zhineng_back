@@ -12,6 +12,8 @@ import java.util.List;
 @Repository
 public interface MessageDao extends JpaRepository<Message, Integer> {
 
+    Message findMessageByMessageId(Integer messageId);
+
     List<Message> findMessagesByUserId(Integer userId);
 
     List<Message> findMessagesByUserIdAndMessageStatus(Integer userId, Integer status);
