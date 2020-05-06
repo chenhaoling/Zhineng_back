@@ -16,42 +16,55 @@ public class UserConnection {
 
     }
 
+    public Integer getRootId() {
+        return rootId;
+    }
+
+    public void setRootId(Integer rootId) {
+        this.rootId = rootId;
+    }
+
+    public Integer getConnectionId() {
+        return connectionId;
+    }
+
+    public void setConnectionId(Integer connectionId) {
+        this.connectionId = connectionId;
+    }
+
+    public Integer getLeaveId() {
+        return leaveId;
+    }
+
+    public void setLeaveId(Integer leaveId) {
+        this.leaveId = leaveId;
+    }
+
+    public Integer getRelationType() {
+        return relationType;
+    }
+
+    public void setRelationType(Integer relationType) {
+        this.relationType = relationType;
+    }
+
     public UserConnection(Integer rootId, Integer leaveId, Integer relationType) {
         this.rootId = rootId;
         this.leaveId = leaveId;
         this.relationType = relationType;
     }
-
-    Integer getConnectionId() {
-        return this.connectionId;
+    @Override
+    public String toString() {
+        return "UserConnection{" +
+                "connectionId=" + connectionId +
+                ", rootId=" + rootId +
+                ", leaveId=" + leaveId +
+                ", relationType=" + relationType +
+                '}';
     }
 
-    void setConnectionId(Integer connectionId) {
-        this.connectionId = connectionId;
-    }
 
-    Integer getNodeId() {
-        return this.rootId;
-    }
 
-    void setNodeId(Integer rootId) {
-        this.rootId = rootId;
-    }
 
-    Integer getLeaveId() {
-        return this.leaveId;
-    }
-
-    void setLeaveId(Integer leaveId) {
-        this.leaveId = leaveId;
-    }
-
-    Integer getRelationType() {
-        return this.relationType;
-    }
-
-    void setRelationType(Integer relationType) {
-        this.relationType = relationType;
-    }
 
 }

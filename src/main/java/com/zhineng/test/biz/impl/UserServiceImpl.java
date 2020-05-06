@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByOpenId(String openId) {
-        return userDao.findByOpenId(openId);
+        return userDao.findUserByOpenId(openId);
     }
 
     @Override

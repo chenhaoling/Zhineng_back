@@ -7,6 +7,7 @@ import com.zhineng.test.domain.po.UserClockHistory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -17,8 +18,11 @@ public class UserClockHistoryController {
     @Autowired
     private UserClockHistoryService userClockHistoryService;
 
+
     @RequestMapping("/getUserClockHistory")
+    @ResponseBody
     public List<UserClockHistory> getUserClockHistory(User user){
-        return userClockHistoryService.getUserClockHistory(user.getUserId());
+        System.out.println(user.getUserId());
+        return userClockHistoryService.getUserClockHistory((user.getUserId()));
     }
 }

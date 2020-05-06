@@ -6,6 +6,7 @@ import com.zhineng.test.domain.po.User;
 import com.zhineng.test.domain.po.UserStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,6 +23,7 @@ public class UserStatusController {
     @RequestMapping("/getUserStatus")
     @ResponseBody
     public List<UserStatus> getUserStatus(User user){
+        System.out.println(user.getUserId());
         return userStatusService.findAllByUserId(user.getUserId());
     }
 

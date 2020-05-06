@@ -12,15 +12,10 @@ import java.util.List;
 @Repository
 public interface UserConnectionDao extends JpaRepository<UserConnection, Integer> {
 
-    List<UserConnection> findUserConnectionsByRootId(Integer rootId);
 
-    List<UserConnection> findUserConnectionsByLeaveId(Integer leaveId);
-
-    List<UserConnection> findUserConnectionsByRootIdAndRelationType(Integer rootId, Integer relationType);
-
-    List<UserConnection> findUserConnectionsByLeaveIdAndRelationType(Integer leaveId, Integer relationType);
 
     List<UserConnection> findAllByConnectionId(Integer connectionId);
+
 
     List<UserConnection> findAllByLeaveId(Integer leaveId);
 

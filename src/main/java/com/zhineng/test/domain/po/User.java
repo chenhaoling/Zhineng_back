@@ -25,6 +25,28 @@ public class User {
     private String userMail;
     private String userPhone;
     private String userNation;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", openId='" + openId + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userIdCard='" + userIdCard + '\'' +
+                ", userRole=" + userRole +
+                ", userIdentity=" + userIdentity +
+                ", groupId=" + groupId +
+                ", userSecondBirthday=" + userSecondBirthday +
+                ", userSex='" + userSex + '\'' +
+                ", userBirthday=" + userBirthday +
+                ", userEduBackground=" + userEduBackground +
+                ", userMail='" + userMail + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                ", userNation='" + userNation + '\'' +
+                ", userOccupation='" + userOccupation + '\'' +
+                '}';
+    }
+
     private String userOccupation;
 
     public User() {
