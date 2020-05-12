@@ -1,4 +1,4 @@
-package com.zhineng.test.biz.impl;
+package com.zhineng.test.biz;
 
 import com.zhineng.test.dao.MessageDao;
 import com.zhineng.test.domain.po.Message;

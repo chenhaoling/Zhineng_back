@@ -1,4 +1,4 @@
-package com.zhineng.test.biz.impl;
+package com.zhineng.test.biz;
 
 import com.zhineng.test.domain.po.Activity;
 import com.zhineng.test.domain.po.GroupOfOrg;
@@ -34,6 +34,8 @@ public interface OrganizationService {
     List<User> getLeadersOfOrganization(Integer organization);
 
     List<Activity> getActivitiesOfOrganization(Integer organizationId);
+
+    Organization getOrganizationById(Integer organizationId);
 
 
 

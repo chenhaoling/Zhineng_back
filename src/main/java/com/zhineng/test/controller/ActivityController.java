@@ -1,9 +1,10 @@
 package com.zhineng.test.controller;
 
 import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.zhineng.test.biz.impl.impl.ActivityServiceImpl;
-import com.zhineng.test.biz.impl.impl.MessageServiceImpl;
+import com.zhineng.test.biz.impl.ActivityServiceImpl;
+import com.zhineng.test.biz.impl.MessageServiceImpl;
 import com.zhineng.test.domain.po.Activity;
+import com.zhineng.test.domain.po.UserClockHistory;
 import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -41,7 +43,8 @@ public class ActivityController {
         Date clockEndTime = sdf.parse((String) params.get("clock_end_time"));
         double activityLongitude = Double.parseDouble((String) params.get("activity_longitude"));
         double activityLatitude = Double.parseDouble((String) params.get("activity_latitude"));
-        List<Integer> participantList = (List<Integer>) body.get("participant_list");
+
+        List<Integer> participantList = PublicClass.getList((String) params.get("participant_list"));
 
         Integer organizationId = Integer.parseInt((String) params.get("organization_id"));
         Integer groupId = -1;
@@ -136,5 +139,32 @@ public class ActivityController {
             System.out.println(e.toString());
             return -2;
         }
+    }
+
+    @RequestMapping(value = "/getUserActivityList")
+    @ResponseBody
+    public List<Activity> getUserActivityList(@RequestParam Map<String, Object> params) throws ParseException {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        Integer userId = Integer.parseInt((String) params.get("user_id"));
+        Date nowTime = sdf.parse((String) params.get("activity_time"));
+
+        List<UserClockHistory> userClockHistoryList = activityService.getActivityClockRecord(userId);
+        List<Activity> couldClockActivities = new ArrayList<Activity>();
+
+        for (UserClockHistory userClockHistory: userClockHistoryList) {
+            couldClockActivities.add(activityService.getActivityById(userClockHistory.getActivityId()));
+        }
+
+        List<Activity> responseList = new ArrayList<Activity>();
+
+        for (Activity activity: couldClockActivities) {
+            if (nowTime.before(activity.getClockEndTIme())) {
+                responseList.add(activity);
+            }
+        }
+
+        return responseList;
     }
 }

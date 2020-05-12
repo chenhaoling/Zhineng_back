@@ -1,4 +1,4 @@
-package com.zhineng.test.biz.impl;
+package com.zhineng.test.biz;
 
 import com.zhineng.test.domain.po.Activity;
 import com.zhineng.test.domain.po.UserClockHistory;
@@ -22,5 +22,7 @@ public interface ActivityService {
     String userLeaveActivity(Integer userId, Integer activityId, Timestamp clockTime);
 
     List<UserClockHistory> getActivityClockRecord(Integer activityId);
+
+    Activity getActivityById(Integer activityId);
 
 }

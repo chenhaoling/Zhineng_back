@@ -1,8 +1,7 @@
 package com.zhineng.test.controller;
 
-import com.zhineng.test.biz.impl.GroupService;
-import com.zhineng.test.biz.impl.impl.ActivityServiceImpl;
-import com.zhineng.test.biz.impl.impl.GroupServiceImpl;
+import com.zhineng.test.biz.GroupService;
+import com.zhineng.test.biz.impl.ActivityServiceImpl;
 import com.zhineng.test.domain.po.Activity;
 import com.zhineng.test.domain.po.GroupOfOrg;
 import com.zhineng.test.domain.po.User;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -84,6 +84,15 @@ public class GroupController {
         }
 
         return leader;
+    }
+
+    @RequestMapping("/getGroup")
+    @ResponseBody
+    public GroupOfOrg getGroup(@RequestParam Map<String, Object> params) throws ParseException {
+
+        Integer groupId = Integer.parseInt((String) params.get("group_id"));
+
+        return groupService.getGroup(groupId);
     }
 
 }

@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 
-import java.awt.*;
 import java.sql.Date;
 import java.util.List;
 
@@ -43,7 +42,7 @@ public interface ActivityDao  extends JpaRepository<Activity, Integer> {
 
     @Modifying
     @Query(value = "update Activity set activity_description = :activityDescription where activity_id = :activityId", nativeQuery = true)
-    void updateActivityDescription(TextArea activityDescription, Integer activityId);
+    void updateActivityDescription(String activityDescription, Integer activityId);
 
     @Modifying
     @Query(value = "update Activity set clock_end_time = :clockEndTime where activity_id = :activityId", nativeQuery = true)

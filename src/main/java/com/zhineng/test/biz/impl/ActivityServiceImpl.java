@@ -1,6 +1,6 @@
-package com.zhineng.test.biz.impl.impl;
+package com.zhineng.test.biz.impl;
 
-import com.zhineng.test.biz.impl.ActivityService;
+import com.zhineng.test.biz.ActivityService;
 import com.zhineng.test.dao.ActivityDao;
 import com.zhineng.test.dao.ActivityOrganizerDao;
 import com.zhineng.test.dao.UserClockHistoryDao;
@@ -137,5 +137,11 @@ public class ActivityServiceImpl implements ActivityService {
     public List<UserClockHistory> getActivityClockRecord(Integer activityId) {
         return userClockHistoryDao.findUserClockHistoriesByActivityId(activityId);
     }
+
+    @Override
+    public Activity getActivityById(Integer activityId) {
+        return activityDao.findActivityByActivityId(activityId);
+    }
+
 
 }

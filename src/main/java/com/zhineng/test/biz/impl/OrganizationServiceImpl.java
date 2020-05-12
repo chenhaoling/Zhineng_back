@@ -1,7 +1,7 @@
-package com.zhineng.test.biz.impl.impl;
+package com.zhineng.test.biz.impl;
 
-import com.zhineng.test.biz.impl.GroupService;
-import com.zhineng.test.biz.impl.OrganizationService;
+import com.zhineng.test.biz.OrganizationService;
+
 import com.zhineng.test.dao.*;
 import com.zhineng.test.domain.po.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -162,5 +162,10 @@ public class OrganizationServiceImpl implements OrganizationService {
         }
 
         return activities;
+    }
+
+    @Override
+    public Organization getOrganizationById(Integer organizationId) {
+        return organizationDao.findOrganizationByOrganizationId(organizationId);
     }
 }

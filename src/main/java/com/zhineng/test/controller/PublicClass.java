@@ -7,9 +7,20 @@ import com.zhineng.test.domain.po.User;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class PublicClass {
+
+    public static List<Integer> getList(String list) {
+        List<Integer> responseList = new ArrayList<Integer>();
+        List<String> temp_list = Arrays.asList(list.split("\\|"));
+
+        for (String id: temp_list) {
+            responseList.add(Integer.parseInt(id));
+        }
+        return responseList;
+    }
 }
 
 

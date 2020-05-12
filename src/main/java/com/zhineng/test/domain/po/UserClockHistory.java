@@ -13,6 +13,16 @@ public class UserClockHistory {
     private Integer userClockHistoryId;
     private Integer userId;
     private Integer activityId;
+    private String  activityName;
+
+    public String getActivityName() {
+        return activityName;
+    }
+
+    public void setActivityName(String activityName) {
+        this.activityName = activityName;
+    }
+
     private Integer clockRecord;
     private Timestamp ClockTime;
 
@@ -58,5 +68,17 @@ public class UserClockHistory {
 
     public void setClockTime(Timestamp clockTime) {
         ClockTime = clockTime;
+    }
+
+    @Override
+    public String toString() {
+        return "UserClockHistory{" +
+                "userClockHistoryId=" + userClockHistoryId +
+                ", userId=" + userId +
+                ", activityId=" + activityId +
+                ", activityName='" + activityName + '\'' +
+                ", clockRecord=" + clockRecord +
+                ", ClockTime=" + ClockTime +
+                '}';
     }
 }

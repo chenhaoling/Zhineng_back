@@ -1,12 +1,9 @@
 package com.zhineng.test.controller;
 
-import com.zhineng.test.biz.impl.impl.ActivityServiceImpl;
-import com.zhineng.test.biz.impl.impl.GroupServiceImpl;
-import com.zhineng.test.biz.impl.impl.OrganizationServiceImpl;
-import com.zhineng.test.domain.po.Activity;
-import com.zhineng.test.domain.po.GroupOfOrg;
-import com.zhineng.test.domain.po.User;
-import com.zhineng.test.domain.po.UserClockHistory;
+import com.zhineng.test.biz.impl.ActivityServiceImpl;
+import com.zhineng.test.biz.impl.GroupServiceImpl;
+import com.zhineng.test.biz.impl.OrganizationServiceImpl;
+import com.zhineng.test.domain.po.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -182,5 +179,18 @@ public class OrganizationController {
         user.setUserOccupation(userOccupation);
 
         return organizationService.createUserOfOrganization(user).getUserId();
+    }
+
+    @RequestMapping("/getOrganization")
+    @ResponseBody
+    public Organization getOrganization(@RequestParam Map<String, Object> params) throws ParseException {
+
+        Integer groupId = Integer.parseInt((String) params.get("group_id"));
+        System.out.println(groupId);
+
+        GroupOfOrg group = groupService.getGroup(groupId);
+        System.out.println(group.getOrganizationId());
+
+        return organizationService.getOrganizationById(group.getOrganizationId());
     }
 }

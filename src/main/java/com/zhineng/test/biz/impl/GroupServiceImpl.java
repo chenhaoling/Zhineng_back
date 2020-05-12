@@ -1,6 +1,6 @@
-package com.zhineng.test.biz.impl.impl;
+package com.zhineng.test.biz.impl;
 
-import com.zhineng.test.biz.impl.GroupService;
+import com.zhineng.test.biz.GroupService;
 import com.zhineng.test.dao.GroupOfOrgDao;
 import com.zhineng.test.dao.UserDao;
 import com.zhineng.test.domain.po.Activity;

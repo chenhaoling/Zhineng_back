@@ -67,7 +67,7 @@ public class UserController {
         JSONObject jsonObject = (JSONObject) JSONObject.parse(resultString);
         session_key = jsonObject.get("session_key").toString();
         openid = jsonObject.get("openid").toString();
-
+        
         System.out.println("session_key = " + session_key);
         System.out.println("openid = " + openid);
         User user = userService.findByOpenId(openid);

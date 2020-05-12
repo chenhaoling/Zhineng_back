@@ -1,6 +1,6 @@
-package com.zhineng.test.biz.impl.impl;
+package com.zhineng.test.biz.impl;
 
-import com.zhineng.test.biz.impl.MessageService;
+import com.zhineng.test.biz.MessageService;
 import com.zhineng.test.dao.MessageDao;
 import com.zhineng.test.domain.po.Message;
 import org.springframework.beans.factory.annotation.Autowired;
