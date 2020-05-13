@@ -5,7 +5,6 @@ import com.zhineng.test.biz.impl.ActivityServiceImpl;
 import com.zhineng.test.biz.impl.MessageServiceImpl;
 import com.zhineng.test.domain.po.Activity;
 import com.zhineng.test.domain.po.UserClockHistory;
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,7 +31,7 @@ public class ActivityController {
 
     @RequestMapping(value = "/CreateActivity")
     @ResponseBody
-    public Integer CreateActivity(@RequestParam Map<String, Object> params, @RequestBody Map<String, Object> body) throws ParseException {
+    public Integer CreateActivity(@RequestParam Map<String, Object> params) throws ParseException {
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
