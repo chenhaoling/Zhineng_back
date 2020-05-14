@@ -14,7 +14,7 @@ public class PublicClass {
 
     public static List<Integer> getList(String list) {
         List<Integer> responseList = new ArrayList<Integer>();
-        List<String> temp_list = Arrays.asList(list.split("\\|"));
+        List<String> temp_list = Arrays.asList(list.split("-"));
 
         for (String id: temp_list) {
             responseList.add(Integer.parseInt(id));
