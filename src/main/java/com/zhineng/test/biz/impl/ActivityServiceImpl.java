@@ -67,12 +67,13 @@ public class ActivityServiceImpl implements ActivityService {
     }
 
     @Override
-    public boolean addClockRecordOfActivity(Integer activityId, List<Integer> participantList) {
+    public boolean addClockRecordOfActivity(Integer activityId, String activityName, List<Integer> participantList) {
         try {
             for (Integer participant: participantList) {
                 UserClockHistory userClockHistory = new UserClockHistory();
                 userClockHistory.setActivityId(activityId);
                 userClockHistory.setUserId(participant);
+                userClockHistory.setActivityName(activityName);
                 userClockHistory.setClockRecord(0);
                 userClockHistory.setClockTime(null);
                 userClockHistoryDao.save(userClockHistory);
@@ -136,6 +137,11 @@ public class ActivityServiceImpl implements ActivityService {
     @Override
     public List<UserClockHistory> getActivityClockRecord(Integer activityId) {
         return userClockHistoryDao.findUserClockHistoriesByActivityId(activityId);
+    }
+
+    @Override
+    public List<UserClockHistory> getActivityClockRecordByUserId(Integer userId) {
+        return userClockHistoryDao.findAllByUserId(userId);
     }
 
     @Override

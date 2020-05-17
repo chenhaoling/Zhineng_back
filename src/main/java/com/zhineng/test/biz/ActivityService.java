@@ -13,7 +13,7 @@ public interface ActivityService {
 
     Activity updateActivity(Activity activity, Integer organizationId);
 
-    boolean addClockRecordOfActivity(Integer activityId, List<Integer> participantList);
+    boolean addClockRecordOfActivity(Integer activityId, String activityName, List<Integer> participantList);
 
     boolean cancelActivity(Integer activityId, Integer organizationId);
 
@@ -22,6 +22,8 @@ public interface ActivityService {
     String userLeaveActivity(Integer userId, Integer activityId, Timestamp clockTime);
 
     List<UserClockHistory> getActivityClockRecord(Integer activityId);
+
+    List<UserClockHistory> getActivityClockRecordByUserId(Integer userId);
 
     Activity getActivityById(Integer activityId);
 

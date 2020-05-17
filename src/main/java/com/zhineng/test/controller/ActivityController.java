@@ -65,7 +65,7 @@ public class ActivityController {
 
             Activity new_activity = activityService.createActivity(activity, organizationId, groupId);
 
-            activityService.addClockRecordOfActivity(new_activity.getActivityId(), participantList);
+            activityService.addClockRecordOfActivity(new_activity.getActivityId(), new_activity.getActivityName(), participantList);
 
             messageService.sendMessagesToUsers(participantList, "您有新的活动签到，请注意议按时签到");
 
@@ -149,10 +149,11 @@ public class ActivityController {
         Integer userId = Integer.parseInt((String) params.get("user_id"));
         Date nowTime = sdf.parse((String) params.get("activity_time"));
 
-        List<UserClockHistory> userClockHistoryList = activityService.getActivityClockRecord(userId);
+        List<UserClockHistory> userClockHistoryList = activityService.getActivityClockRecordByUserId(userId);
         List<Activity> couldClockActivities = new ArrayList<Activity>();
 
         for (UserClockHistory userClockHistory: userClockHistoryList) {
+            System.out.println(1);
             couldClockActivities.add(activityService.getActivityById(userClockHistory.getActivityId()));
         }
 

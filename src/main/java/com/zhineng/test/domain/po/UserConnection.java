@@ -3,7 +3,7 @@ package com.zhineng.test.domain.po;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "UserConnetion")
+@Table(name = "UserConnection")
 public class UserConnection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
