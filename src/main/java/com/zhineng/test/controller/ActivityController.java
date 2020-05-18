@@ -153,8 +153,9 @@ public class ActivityController {
         List<Activity> couldClockActivities = new ArrayList<Activity>();
 
         for (UserClockHistory userClockHistory: userClockHistoryList) {
-            System.out.println(1);
-            couldClockActivities.add(activityService.getActivityById(userClockHistory.getActivityId()));
+            if (userClockHistory.getClockRecord() == 0) {
+                couldClockActivities.add(activityService.getActivityById(userClockHistory.getActivityId()));
+            }
         }
 
         List<Activity> responseList = new ArrayList<Activity>();
