@@ -109,7 +109,7 @@ class ResponseUser {
         this.userName = user.getUserName();
         this.userIdCard = user.getUserIdCard();
         this.userRole = roleList.get(user.getUserRole() - 1);
-        this.userIdentity = identityList.get(user.getUserIdentity());
+        this.userIdentity = identityList.get(user.getUserIdentity() - 1);
         this.groupId = user.getGroupId();
         this.userSecondBirthday = user.getUserSecondBirthday();
         this.userSex = user.getUserSex();
